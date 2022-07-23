@@ -6,11 +6,40 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+     <header class="fix-top header">
+        <nav class="navbar navbar-expand-lg navbar-light pt-3">
+          <div class="container">
+              <div class='col-md-2'>
+                Logo 
+              </div>
+              <div class='col-md-10'>
+                <ul class="nav justify-content-end">
+                <li class='mx-3'>
+                  <a class="btn btn-outline-secondary mr-3vw" >About</a>  
+                  </li>
+         
+                <li class="mx-3">
+                  <a class="btn btn-outline-secondary mr-3vw" >商品一覧</a>  
+                  </li>
+         
+                <li class="mx-3">
+                  <a class="btn btn-outline-secondary mr-3vw" >新規登録</a>  
+                </li>
+          
+                <li class="mx-3">
+                  <a class="btn btn-outline-secondary mr-3vw" >ログイン</a>  
+                </li>
+                </ul>
+              </div>
+            </div>
+          
+        </nav>  
+    </header>
     <%= yield %>
   </body>
 </html>
