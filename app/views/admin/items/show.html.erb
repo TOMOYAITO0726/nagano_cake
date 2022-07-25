@@ -1,5 +1,6 @@
+<div class="container">
 <h1>商品詳細</h1>
-<%= image_tag @item.image,size:"200×200" %>
+<%= image_tag @item.get_image(200,200) %>
 <h1>商品名</h1>
 <%= @item.name %>
 <h1>商品説明</h1>
@@ -12,5 +13,8 @@
 <% if @item.is_active %>
 販売中
 <% else %>
-販売停止中    
+販売停止中
 <% end %>
+
+<%= link_to "編集する" ,edit_admin_item_path(@item.id) ,class:"btn btn-success" %>
+</div>
