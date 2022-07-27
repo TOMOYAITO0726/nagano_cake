@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+   
+   root to: 'public/homes#top'
+   get 'about' => 'public/homes#about'
+   
    namespace :admin do
    #get 'items' => 'admins/items#index'
-   get 'homes' => 'homes#top'
+   #get 'homes' => 'homes#top'
    end 
    
    namespace :customers do

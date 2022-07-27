@@ -19,21 +19,64 @@
               </div>
               <div class='col-md-10'>
                 <ul class="nav justify-content-end">
+                
+                <% if  admin_signed_in? %>
+                
+                <li class="mx-3">
+                  <%= link_to "商品一覧",admin_items_path,class:"btn btn-outline-secondary mr-3vw" %>
+                  </li>
+                
+                <li class="mx-3">
+                  <%= link_to "会員一覧",admin_customers_path,class:"btn btn-outline-secondary mr-3vw" %>
+                  </li>
+                
+                <li class="mx-3">
+                  <%= link_to "注文履歴一覧", class:"btn btn-outline-secondary mr-3vw" %>  
+                </li>
+                
+                <li class="mx-3">
+                  <%= link_to "ジャンル一覧",admin_genres_path,class:"btn btn-outline-secondary mr-3vw" %>
+                  </li>
+          
+                <li class="mx-3">
+                  <%=link_to "ログアウト",destroy_admin_session_path, method: :delete ,class:"btn btn-outline-secondary mr-3vw" %>
+                </li>
+                
+                <% elsif customer_signed_in? %>
                 <li class='mx-3'>
-                  <a class="btn btn-outline-secondary mr-3vw" >About</a>  
+                  <%= link_to "マイページ", class:"btn btn-outline-secondary mr-3vw"  %>
+                </li>
+         
+                <li class="mx-3">
+                  <%= link_to "商品一覧",class:"btn btn-outline-secondary mr-3vw" %>
                   </li>
          
                 <li class="mx-3">
-                  <a class="btn btn-outline-secondary mr-3vw" >商品一覧</a>  
-                  </li>
-         
-                <li class="mx-3">
-                  <a class="btn btn-outline-secondary mr-3vw" >新規登録</a>  
+                  <%= link_to "カート", class:"btn btn-outline-secondary mr-3vw" %>  
                 </li>
           
                 <li class="mx-3">
-                  <a class="btn btn-outline-secondary mr-3vw" >ログイン</a>  
+                  <%=link_to "ログアウト", destroy_customer_session_path ,method: :delete ,class:"btn btn-outline-secondary mr-3vw" %>
                 </li>
+                
+                <% else %>
+                 <li class='mx-3'>
+                  <%= link_to "About",about_path, class:"btn btn-outline-secondary mr-3vw"  %>
+                </li>
+         
+                <li class="mx-3">
+                  <%= link_to "商品一覧",class:"btn btn-outline-secondary mr-3vw" %>
+                  </li>
+         
+                <li class="mx-3">
+                  <%= link_to "新規登録",new_customer_registration_path, class:"btn btn-outline-secondary mr-3vw" %>  
+                </li>
+          
+                <li class="mx-3">
+                  <%=link_to "ログイン",admin_session_path ,class:"btn btn-outline-secondary mr-3vw" %>
+                </li>
+                <% end %>
+                
                 </ul>
               </div>
             </div>

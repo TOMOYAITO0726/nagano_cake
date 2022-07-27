@@ -1,1 +1,27 @@
-<h1>会員一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+<table class="table  table-inverse"> 
+<th>会員一覧</th>
+<tr>
+<td>商品ID</td>  
+<td>氏名</td>  
+<td>メールアドレス</td>  
+<td>ステータス</td>  
+</tr>
+
+<tr>
+<% @customers.each do |customer| %>
+
+<td><%= customer.id %></td>
+
+<td><%= customer.last_name %><%= customer.first_name %></td>
+
+<td><%= customer.email %></td>
+</tr>
+<% end %>
+  
+   </table>
+  </div>
+ </div>
+</div>
