@@ -2,14 +2,22 @@ Rails.application.routes.draw do
    
    root to: 'public/homes#top'
    get 'about' => 'public/homes#about'
+   #get '/public/customers/:id'=>'/public/customers/show', as :'/customers/my_page'
    
    namespace :admin do
    #get 'items' => 'admins/items#index'
    #get 'homes' => 'homes#top'
    end 
    
-   namespace :customers do
+   namespace :public do
    get 'homes' => 'homes#top' 
+   #resource:customers,only:[:show, :edit, :update]
+   get '/customers/my_page' => 'customers#show'
+   
+   patch '/customers/out'=>'customers#out'
+   get '/customers/edit'=>'customers#edit'
+   patch 'customers/update'=>'customers#update'
+   get '/customers/quit'=>'customers#quit'
    end
    #get 'items' => 'customers/items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -44,7 +44,7 @@
                 
                 <% elsif customer_signed_in? %>
                 <li class='mx-3'>
-                  <%= link_to "マイページ", class:"btn btn-outline-secondary mr-3vw"  %>
+                  <%= link_to "マイページ",public_customers_my_page_path,class:"btn btn-outline-secondary mr-3vw"  %>
                 </li>
          
                 <li class="mx-3">
@@ -73,7 +73,7 @@
                 </li>
           
                 <li class="mx-3">
-                  <%=link_to "ログイン",admin_session_path ,class:"btn btn-outline-secondary mr-3vw" %>
+                  <%=link_to "ログイン",new_customer_session_path ,class:"btn btn-outline-secondary mr-3vw" %>
                 </li>
                 <% end %>
                 
