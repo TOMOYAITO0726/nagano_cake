@@ -18,6 +18,7 @@ Rails.application.routes.draw do
    get '/customers/edit'=>'customers#edit'
    patch 'customers/update'=>'customers#update'
    get '/customers/quit'=>'customers#quit'
+   resources :addresses, only: [:index, :create, :new, :edit, :update, :destory]
    end
    #get 'items' => 'customers/items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
