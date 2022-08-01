@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>商品詳細</h1>
+  <div class="row">
+    <div class="col-lg-3">
+    </div>  
+    
+  <div class="col-lg-3">
+  <div class="image">
+  <%= image_tag @item.get_image(200,200) %>
+  </div>
+  </div>
+  
+ <div class="col-lg-6">
+  
+  <table>
+  <thead>
+  <tr>
+  <th>
+  <%= @item.name %>
+   </th>
+   </tr>
+  </thead>
+  
+  <tbody>
+  <tr>
+  <td><%= @item.introduction %></td>
+  </tr>
+  
+  <tr>
+  <td>¥<%= @item.price %>(税込)</td>
+  </tr>
+   
+   <tr>
+   <td>個数選択</td>
+   <td><%= link_to "カートに入れる"  ,class:"btn btn-success" %></td>
+   </tr>
+    </tbody>
+   </table>
+  </div>
+ 
+ 
+</div>
+
+</div>

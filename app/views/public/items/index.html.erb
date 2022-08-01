@@ -1,0 +1,15 @@
+<div class="container">
+<h1>商品一覧</h1>
+
+<% @items.each do |item| %>
+<table>
+<tr>  
+<%= image_tag item.get_image(200,200) %>
+<%= item.name %>
+<%= item.price %>
+</tr>
+</table>
+<% end %>
+
+
+</div>
