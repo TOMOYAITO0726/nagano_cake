@@ -11,7 +11,7 @@ Rails.application.routes.draw do
    
    namespace :public do
    get 'homes' => 'homes#top' 
-   #resource:customers,only:[:show, :edit, :update]
+   #resource :customers,only:[:show, :edit, :update]
    get '/customers/my_page' => 'customers#show'
    
    patch '/customers/out'=>'customers#out'
@@ -20,6 +20,13 @@ Rails.application.routes.draw do
    get '/customers/quit'=>'customers#quit'
    resources :addresses, only: [:index, :create, :new, :edit, :update, :destroy]
    resources :items,only: [:index, :show]
+   resources :cart_items, only: [:index, :update, :destroy, :create ] do 
+     collection do
+      delete :destroy_all
+     end     
+   end   
+   
+   
    end
    #get 'items' => 'customers/items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

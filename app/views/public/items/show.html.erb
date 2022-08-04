@@ -4,41 +4,50 @@
     <div class="col-lg-3">
     </div>  
     
-  <div class="col-lg-3">
-  <div class="image">
-  <%= image_tag @item.get_image(200,200) %>
-  </div>
-  </div>
+    <div class="col-lg-3">
+     <div class="image">
+     <%= image_tag @item.get_image(200,200) %>
+     </div>
+    </div>
   
- <div class="col-lg-6">
+    <div class="col-lg-6">
   
-  <table>
-  <thead>
-  <tr>
-  <th>
-  <%= @item.name %>
-   </th>
-   </tr>
-  </thead>
+    <table>
+    <thead>
+    <tr>
+    <th> <%= @item.name %> </th>
+    </tr>
+    </thead>
   
-  <tbody>
-  <tr>
-  <td><%= @item.introduction %></td>
-  </tr>
+    <tbody>
+    <tr>
+    <td><%= @item.introduction %></td>
+    </tr>
   
-  <tr>
-  <td>¥<%= @item.price %>(税込)</td>
-  </tr>
+    <tr>
+    <td>¥<%= @item.price %>(税込)</td>
+    </tr>
    
-   <tr>
-   <td>個数選択</td>
-   <td><%= link_to "カートに入れる"  ,class:"btn btn-success" %></td>
-   </tr>
+    <tr>
+    <td>個数選択</td>
+    <td></td>
+    </tr>
     </tbody>
-   </table>
+    </table>
+    
+     <%= form_with(model:[@cart_item], url: public_cart_items_path, method: :post, local:true) do |f| %>
+     <%=f.hidden_field:item_id,:value=>@item.id %>
+     <%= f.select :amount,*[1..10] %>
+     <%= f.submit "カートに入れる",class:"btn btn-success"  %> 
+     <% end %>
+    
+    
+    
+   
+    
+    </div>
+ 
+ 
   </div>
- 
- 
-</div>
 
 </div>

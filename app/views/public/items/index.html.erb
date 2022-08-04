@@ -1,15 +1,15 @@
 <div class="container">
 <h1>商品一覧</h1>
-
+<div class="items  d-flex flex-wrap">
 <% @items.each do |item| %>
-<table>
-<tr>  
-<%= image_tag item.get_image(200,200) %>
-<%= item.name %>
-<%= item.price %>
-</tr>
-</table>
-<% end %>
 
+<%= link_to public_item_path(item.id),class:"item-detail d-block mr-5 mb-5" do %>
+<%= image_tag item.get_image(200,200) %>
+<p><%= item.name %></p>
+
+<p>￥<%= item.price %></p>
+<% end %>
+<% end %>
+</div>
 
 </div>
