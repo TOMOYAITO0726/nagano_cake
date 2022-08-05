@@ -1,7 +1,16 @@
 <div class="container">
-<%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class:"btn btn-outline-danger" %>    
-<h1>ショッピングカート</h1>
-<table>
+ <div class="row">
+   <div class="col-lg-10">
+   ショッピングカート
+   </div>
+   <div class="col-lg-2">     
+    <%= link_to "カートを空にする", destroy_all_public_cart_items_path, method: :delete, class:"btn btn-outline-danger" %>    
+   </div>
+ </div>
+ 
+<div class="row"> 
+<div class="col-lg-10">
+<table border="2" cellpadding="6" cellspacing="5">
 <tr>
 <td>商品名</td>  
 <td>単価（税込）</td>  
@@ -25,22 +34,47 @@
 
 
 </td>
-<td><%= cart_item.subtotal %></td>
-<td><%= link_to "削除", public_cart_item_path(cart_item.id) ,method: :delete, class:"btn btn-outline-danger" %></td>
-<% @subtotal+= cart_item.subtotal %>
-</tr>
+ <td><%= cart_item.subtotal %></td>
+ <td><%= link_to "削除", public_cart_item_path(cart_item.id) ,method: :delete, class:"btn btn-outline-danger" %></td>
+ <% @subtotal+= cart_item.subtotal %>
+ </tr>
 
-<% end %>
-</table>
+  <% end %>
+ </table>
+ </div>
+ <div class="col-lg-2">
+ </div>
+</div>
 
-<table>
-<tr>
-<td></td>    
-<td></td>
-<td></td>
-<td>合計金額</td>    
-<td><%= @subtotal %></td>
-</tr>
-</table>
+
+<div class="row">
+ <div class="col-lg2">
+ <%= link_to "買い物を続ける" , root_path,class:"btn btn-outline-danger"%>     
+ </div>
+ 
+ <div class="col-lg-3">
+      
+ </div>
+ 
+ 
+ 
+ <div class="col-lg-2">
+     <table>
+      <tr>
+      <td></td>    
+      <td></td>
+      <td></td>
+      <td>合計金額</td>    
+      <td><%= @subtotal %></td>
+     </tr>
+     </table>
+  </div>
+ </div>
+
+  <div class="row">
+     <div class="col-lg-12">
+        <%= link_to "情報入力に進む",class:"btn btn-success" %> 
+     </div>  
+  </div>
 
 </div>
