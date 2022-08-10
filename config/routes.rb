@@ -26,7 +26,7 @@ Rails.application.routes.draw do
      end    
    end   
    resources :orders, only: [:new, :create, :index, :show]
-   
+   post '/orders/confirm'=>'orders#confirm'
    
    end
    #get 'items' => 'customers/items#index'
