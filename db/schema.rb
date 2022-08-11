@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 2022_07_30_124455) do
   end
 
   create_table "order_details", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "item_id"
     t.integer "quantity", null: false
     t.integer "purchase_price", null: false
     t.integer "manufacture", null: false
@@ -114,6 +116,7 @@ ActiveRecord::Schema.define(version: 2022_07_30_124455) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "full_name", null: false

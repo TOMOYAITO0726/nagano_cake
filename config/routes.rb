@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       delete :destroy_all
      end    
    end   
+   get  '/orders/complete'=>'orders#complete'
    resources :orders, only: [:new, :create, :index, :show]
    post '/orders/confirm'=>'orders#confirm'
    
