@@ -5,12 +5,8 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :"名前" %>
-    (姓)
+    <%= f.label :"名前（姓)" %>
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
-  
-  <div class="field">
     (名)
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
   </div>
@@ -19,9 +15,6 @@
     <%= f.label :"フリガナ" %>
     (セイ)
     <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
-  </div>
-  
-  <div class="field">
     (メイ)
     <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
   </div>
@@ -47,15 +40,15 @@
   </div>
   
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上使用)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認用 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -64,6 +57,9 @@
   </div>
 <% end %>
 
+  <div class="log-in">
+  既に登録済みの方<br>
+  <%= link_to "こちら",new_customer_session_path %>からログインしてください。
+  </div>
 
-<%= render "public/shared/links" %>
 </div>

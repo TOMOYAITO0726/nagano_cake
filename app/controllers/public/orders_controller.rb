@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
     @order_detail.order_id=@order.id
     @order_detail.item_id=cart_item.item_id
     @order_detail.quantity=cart_item.amount
-    @order_detail.purchase_price=cart_item.subtotal
+    @order_detail.purchase_price=cart_item.item.with_tax_price
     @order_detail.manufacture=0
     @order_detail.save
     end     

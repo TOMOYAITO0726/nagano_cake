@@ -35,17 +35,17 @@
   <b>請求情報</b>
     <tr>
       <td>商品合計</td>
-      <td></td>
+      <td><%= @order_details.sum {|order_detail| order_detail.subtotal} %></td>
     </tr>
 
     <tr>
       <td>配送料</td>
-      <td></td>
+      <td><%= @order.postage %></td>
     </tr>
 
     <tr>
       <td><b>ご請求額</b></td>
-      <td></td>
+      <td><%= @order.amount_billed %></td>
     </tr>
   
   </table>
@@ -64,9 +64,9 @@
       <% @order_details.each do |order_detail|  %>
       <tr>
       <td><%= order_detail.item.name %></td> 
-      <td><%= order_detail.item.price %></td>
+      <td><%= order_detail.purchase_price %></td>
       <td><%= order_detail.quantity %></td>
-      <td></td>
+      <td><%= order_detail.subtotal %></td>
       </tr>
       <% end %>
   </table>
