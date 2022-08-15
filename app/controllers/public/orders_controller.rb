@@ -1,7 +1,9 @@
 class Public::OrdersController < ApplicationController
+   before_action :authenticate_customer!
   
   def new
     @order=Order.new
+    @addresses=current_customer.addresses
   end   
   
   def create
@@ -20,7 +22,7 @@ class Public::OrdersController < ApplicationController
     @order_detail.item_id=cart_item.item_id
     @order_detail.quantity=cart_item.amount
     @order_detail.purchase_price=cart_item.item.with_tax_price
-    @order_detail.manufacture=0
+    @order_detail.manufacture_status=0
     @order_detail.save
     end     
     
